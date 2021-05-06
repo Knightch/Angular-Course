@@ -1,1 +1,2 @@
-Angular-Course\.vscode
+#ignore my .vscode folder
+.vscode
