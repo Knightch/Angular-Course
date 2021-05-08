@@ -4,10 +4,10 @@
             <hr>
             <!-- <button class="btn btn-primary" (click)="showSecret=!showSecret">Show Secret</button> --->
             <button class="btn btn-primary" (click)="toggleNumber()">Show Secret</button>
-            <p *ngIf = "showSecret">Secret message</p>
-            <div *ngFor= "let logItem of log"
-            [ngStyle]="{backgroundColor: logItem>= 5 ? 'orange' : 'transparent '}"
-            [ngClass]="{textFormat: logItem>=5}">
+            <p *ngIf = "showSecret">Hi I am Aman</p>
+            <div *ngFor= "let logItem of log ; let i = index"
+            [ngStyle]="{backgroundColor: i>= 4 ? 'orange' : 'transparent '}"
+            [ngClass]="{textFormat: i>=4}">
                 <p>{{ logItem }}</p>
             </div>
         </div>
