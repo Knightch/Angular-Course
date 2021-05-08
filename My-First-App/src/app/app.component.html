@@ -1,15 +1,8 @@
+<app-header></app-header>
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <hr>
-            <!-- <button class="btn btn-primary" (click)="showSecret=!showSecret">Show Secret</button> --->
-            <button class="btn btn-primary" (click)="toggleNumber()">Show Secret</button>
-            <p *ngIf = "showSecret">Secret message</p>
-            <div *ngFor= "let logItem of log"
-            [ngStyle]="{backgroundColor: logItem>= 5 ? 'orange' : 'transparent '}"
-            [ngClass]="{textFormat: logItem>=5}">
-                <p>{{ logItem }}</p>
-            </div>
+            <h1>I am Working</h1>
         </div>
     </div>
 </div>
