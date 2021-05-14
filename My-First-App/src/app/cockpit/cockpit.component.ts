@@ -15,14 +15,14 @@ export class CockpitComponent implements OnInit {
       this.serverCreated.emit({
         serverName: this.newServerName,
         serverContent: this.newServerContent
-      })
-    };
+      });
+    }
 
     onAddblueprint() {
     this.blueprintCreated.emit({
       serverName: this.newServerName,
       serverContent: this.newServerContent
-    })
+    });
 }
  
     constructor() { }
