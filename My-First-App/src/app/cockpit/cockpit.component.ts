@@ -1,9 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
   templateUrl: './cockpit.component.html',
-  styleUrls: ['./cockpit.component.css']
+  styleUrls: ['./cockpit.component.css'],
+  encapsulation:ViewEncapsulation.None
 })
 export class CockpitComponent implements OnInit {
   @Output('sCreated') serverCreated = new EventEmitter<{serverName: string, serverContent:string}>();
