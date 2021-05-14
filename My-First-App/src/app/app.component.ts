@@ -13,7 +13,7 @@ export class AppComponent {
        this.serverElements.push({
            type:'server',
            name:serverData.serverName,
-           content: serverData.serverName
+           content: serverData.serverContent
          });
     }
 
