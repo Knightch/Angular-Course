@@ -4,7 +4,7 @@ import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@ang
   selector: 'app-cockpit',
   templateUrl: './cockpit.component.html',
   styleUrls: ['./cockpit.component.css'],
-  encapsulation:ViewEncapsulation.None
+  encapsulation:ViewEncapsulation.Emulated
 })
 export class CockpitComponent implements OnInit {
   @Output('sCreated') serverCreated = new EventEmitter<{serverName: string, serverContent:string}>();
