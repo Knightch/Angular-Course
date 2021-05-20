@@ -8,7 +8,8 @@ import {
   AfterContentInit,
   AfterContentChecked,
   AfterViewInit,
-  AfterViewChecked
+  AfterViewChecked,
+  OnDestroy
 } from '@angular/core';
 
 @Component({
@@ -23,7 +24,8 @@ export class ServerElementComponent implements OnInit,
   AfterContentChecked,
   AfterContentInit,
   AfterViewInit,
-  AfterViewChecked {
+  AfterViewChecked,
+  OnDestroy {
   @Input('srvrElement') element: { name: string, type: string, content: string };
   @Input() name: string;
   constructor() {
@@ -57,6 +59,10 @@ export class ServerElementComponent implements OnInit,
 
   ngAfterViewChecked() {
     console.log("AfterViewChecked called!");
+  }
+
+  ngOnDestroy() {
+    console.log("ngOnDestroy called!");
   }
 
 
