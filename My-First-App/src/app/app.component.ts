@@ -6,31 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  serverElements = [{ name: 'NewserverAman', type: 'server', content: 'it is a testing server' }]
+  evenNumbers: Number[] = [];
+  oddNumbers: Number[] = [];
+  primeNumbers: Number[] = [];
 
 
-  onServerAdded(serverData: { serverName: string, serverContent: string }) {
-    this.serverElements.push({
-      type: 'server',
-      name: serverData.serverName,
-      content: serverData.serverContent
-    });
+  onIntervalFired(Firednumber: number) {
+    if (Firednumber % 2 === 0) {
+      this.evenNumbers.push(Firednumber);
+    } else {
+      this.oddNumbers.push(Firednumber);
+    }
   }
-
-  onChangeFirst() {
-    this.serverElements[0].name = 'changed';
-  }
-
-  onDestroyFirst(){
-    this.serverElements.splice(0,1);
-  }
-
-  onBlueprintAdded(blueprintData: { serverName: string, serverContent: string }) {
-    this.serverElements.push({
-      type: 'blueprint',
-      name: blueprintData.serverName,
-      content: blueprintData.serverContent
-    });
+  onIntervalPrimeNumber(i: number) {
+    for (i % i === 0; i < 0;i--){
+      this.primeNumbers.push(i);
+    }
   }
 }
 
