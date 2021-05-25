@@ -1,3 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12">
+            <button class="btn btn-primary" (click)="oddNum=!oddNum">Show Odd number</button>
+        </div>
+    </div>
+    <ul class="list-group">
+        <div *ngIf="oddNum">
+            <li class="list-group-item" *ngFor="let odd of oddNumber" [ngClass]="{odd: odd%2!==0}"
+                [ngStyle]="{backgroundColor: odd%2 !==2 ? 'yellow':'transparent'}">
+                {{odd}}
+            </li>
+        </div>
+    </ul>
+    <ul class="list-group">
+        <div *ngIf="!oddNum">
+            <li class="list-group-item" *ngFor="let even of evenNumber" [ngClass]="{odd: even%2!==0}"
+                [ngStyle]="{backgroundColor: even%2 !==0 ? 'yellow':'transparent'}">
+                {{even}}
+            </li>
+        </div>
+    </ul>
+</div>
+<br><br><br>
+
 <p basicHighlight> Hello it is creat by myself !</p>
 <!-- <p appBetterHighLight > New Try Using Renderer !</p> -->
-<p appBetterHighLight [defaultColor]="'yellow'" [highlightColor]="'green'" >Using binding to directive!</p>
+<p appBetterHighLight [defaultColor]="'yellow'" [highlightColor]="'green'">Using binding to directive!</p>
