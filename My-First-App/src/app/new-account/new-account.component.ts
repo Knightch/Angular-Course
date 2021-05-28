@@ -6,7 +6,7 @@ import { LoggingService } from '../logging.service';
   selector: 'app-new-account',
   templateUrl: './new-account.component.html',
   styleUrls: ['./new-account.component.css'],
-  providers: [LoggingService]
+  //providers: [LoggingService]
 })
 export class NewAccountComponent implements OnInit {
 
@@ -18,6 +18,5 @@ export class NewAccountComponent implements OnInit {
   }
   onCreatAccount(accountName: string, accountStatus: string) {
     this.accountService.addAccount(accountName, accountStatus);
-    this.loggingService.logStatusCHanges(accountStatus);
   }
 }
