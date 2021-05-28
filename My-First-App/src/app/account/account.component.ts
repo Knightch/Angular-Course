@@ -15,6 +15,6 @@ export class AccountComponent implements OnInit {
   }
   onSetTo(status: string) {
     this.statusChanged.emit({ id: this.id, newStatus: status });
-    console.log('A service changed,new status' + status);
+    console.log('A service changed,new status ' + status);
   }
 }
