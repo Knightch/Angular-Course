@@ -12,6 +12,7 @@ import { RecipesItemComponent } from './recipes/recipes-list/recipes-item/recipe
 import { ShoppingComponent } from './shopping/shopping.component';
 import { ShoppingEditComponent } from './shopping/shopping-edit/shopping-edit.component';
 import { ShoppingService } from './shopping/shopping.service';
+import { DropDownDirective } from './Ingredient/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ShoppingService } from './shopping/shopping.service';
     RecipesListComponent,
     RecipesItemComponent,
     ShoppingComponent,
-    ShoppingEditComponent
+    ShoppingEditComponent,
+    DropDownDirective
 
   ],
   imports: [
