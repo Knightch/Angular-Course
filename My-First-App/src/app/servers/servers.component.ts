@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent implements OnInit {
-
+  public servers: Array<string> = ['server 1', 'server 2', 'server 3'];
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {

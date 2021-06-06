@@ -18,4 +18,7 @@ export class HomeComponent implements OnInit {
   onUsers() {
     this.router.navigate(['/users']);
   }
+  onLoading(id: number) {
+    this.router.navigate(['/server', id, 'edit'], { queryParams: { allowEdit: '1' }, fragment: 'loading' });
+  }
 }

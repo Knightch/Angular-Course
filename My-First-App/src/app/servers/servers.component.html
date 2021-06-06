@@ -1,2 +1,20 @@
-<p>For Page reload</p>
-<button class="btn btn-primary" (click)="onReloadPage()">Reload Page</button>
+<div class="row">
+    <div class="col-sm-12">
+        <p>For Page reload</p>
+        <button class="btn btn-primary" (click)="onReloadPage()">Reload Page</button>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12 col-sm-4">
+        <div class="list-group">
+            <a [routerLink]="['/server',5,'edit']" [queryParams]="{allowEdit:'1'}" fragment="loading" href="#"
+                class="list-group-item" *ngFor="let server of servers">
+                {{ server }}
+            </a>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+        <app-edit-server></app-edit-server>
+    </div>
+</div>
