@@ -11,6 +11,7 @@ import { ServersComponent } from './servers/servers.component';
 import { UsersComponent } from './users/users.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ServerService } from './servers/server.service';
 
 const appRouter: Routes = [
   { path: '', component: HomeComponent },
@@ -35,7 +36,7 @@ const appRouter: Routes = [
     FormsModule,
     RouterModule.forRoot(appRouter)
   ],
-  providers: [],
+  providers: [ServerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
