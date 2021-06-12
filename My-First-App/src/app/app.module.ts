@@ -12,6 +12,7 @@ import { UsersComponent } from './users/users.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ServerService } from './servers/server.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRouter: Routes = [
   { path: '', component: HomeComponent },
@@ -20,14 +21,16 @@ const appRouter: Routes = [
       { path: 'users/:id/:name', component: UserComponent }
     ]
   },
-  
+
   {
     path: 'servers', component: ServersComponent, children: [
       { path: ':id', component: ServerComponent },
       { path: ':id/edit', component: EditServerComponent }
     ]
-  }
-  
+  },
+  { path: 'not-found', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/not-found' }
+
 ];
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ const appRouter: Routes = [
     UserComponent,
     ServersComponent,
     UsersComponent,
-    HomeComponent
+    HomeComponent,
+    PageNotFoundComponent
 
   ],
   imports: [
