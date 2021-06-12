@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AuthGuard } from "./authGuard.service";
 
 import { HomeComponent } from "./home/home.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
@@ -18,7 +19,7 @@ const appRouter: Routes = [
     },
 
     {
-        path: 'servers', component: ServersComponent, children: [
+        path: 'servers', canActivate: [AuthGuard], component: ServersComponent, children: [
             { path: ':id', component: ServerComponent },
             { path: ':id/edit', component: EditServerComponent }
         ]
@@ -30,9 +31,9 @@ const appRouter: Routes = [
 
 @NgModule({
     imports: [
-    RouterModule.forRoot(appRouter)
+        RouterModule.forRoot(appRouter)
     ],
-    exports:[RouterModule]
+    exports: [RouterModule]
 })
 export class NgRoutesModule {
 

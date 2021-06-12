@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { ServerService } from './servers/server.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NgRoutesModule } from './ngRoutes.module';
+import { AuthGuard } from './authGuard.service';
+import { AuthService } from './auth.service';
 
 
 @NgModule({
@@ -32,7 +34,7 @@ import { NgRoutesModule } from './ngRoutes.module';
     FormsModule,
     NgRoutesModule
   ],
-  providers: [ServerService],
+  providers: [ServerService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
