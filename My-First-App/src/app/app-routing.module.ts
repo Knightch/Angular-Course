@@ -5,8 +5,8 @@ import { RecipesComponent } from "./recipes/recipes.component";
 import { ShoppingComponent } from "./shopping/shopping.component";
 
 const appRoutes: Routes = [
-    { path: '', redirectTo: '/recipe' , pathMatch:'full'},
-    { path: 'recipe', component: RecipesComponent },
+    { path: '', redirectTo: '/recipes' , pathMatch:'full'},
+    { path: 'recipes', component: RecipesComponent },
     { path: 'shopping-list', component: ShoppingComponent }
 ]
 @NgModule({
