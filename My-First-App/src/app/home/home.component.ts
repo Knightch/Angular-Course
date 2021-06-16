@@ -1,32 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
+  private firstObsSubscription: Subscription;
+  constructor() { }
 
-  constructor(private router: Router, private authservice: AuthService) { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+    this.firstObsSubscription = interval(1000).subscribe(count => {
+      console.log(count)
+    });
   }
-  onServer() {
-    this.router.navigate(['/servers']);
-  }
-  onUsers() {
-    this.router.navigate(['/users']);
-  }
-  onLoading(id: number) {
-    this.router.navigate(['/server', id, 'edit'], { queryParams: { allowEdit: '1' }, fragment: 'loading' });
+  ngOnDestroy() {
+    this.firstObsSubscription.unsubscribe();
   }
 
-  login() {
-    this.authservice.logIn();
-  }
-  logout() {
-    this.authservice.logout();
-  }
 }
+
