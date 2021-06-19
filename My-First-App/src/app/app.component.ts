@@ -11,6 +11,7 @@ export class AppComponent {
   defaultValue = "pet";
   defaultName = "Enter your name";
   defaultEmail = "Enter your mail";
+  answer = "";
 //   onSubmit(form:NgForm) {
 //     console.log(form);
 //  }
