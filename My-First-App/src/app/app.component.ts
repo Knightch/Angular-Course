@@ -8,6 +8,9 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
   @ViewChild('f') formSubmit: NgForm;
+  defaultValue = "pet";
+  defaultName = "Enter your name";
+  defaultEmail = "Enter your mail";
 //   onSubmit(form:NgForm) {
 //     console.log(form);
 //  }
