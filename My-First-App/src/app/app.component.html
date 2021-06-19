@@ -9,7 +9,7 @@
               #uName="ngModel">
             <span class="help-block" *ngIf="!uName.valid && uName.touched">Please enter name</span>
           </div>
-          <button class="btn btn-default" type="button">Suggest as username</button>
+          <button class="btn btn-default" (click)="suggestUserName()" type="button">Suggest as username</button>
           <div class="form-group">
             <label for="email">Mail</label>
             <input type="email" id="email" class="form-control" [ngModel]="defaultEmail" name="email" required email
