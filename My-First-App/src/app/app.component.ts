@@ -12,6 +12,7 @@ export class AppComponent {
   defaultName = "Enter your name";
   defaultEmail = "Enter your mail";
   answer = "";
+  genders = ['Male', 'Female'];
 //   onSubmit(form:NgForm) {
 //     console.log(form);
 //  }
