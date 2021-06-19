@@ -38,4 +38,15 @@
       </form>
     </div>
   </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-12" *ngIf="submitDetails">
+      <h3>User Details</h3>
+      <p>UserName : {{user.name}}</p>
+      <p>Email : {{user.mail}}</p>
+      <p>Question is : your first {{user.secret}} name ???</p>
+      <p>The first is : {{user.answer}}</p>
+      <p>Gender : {{user.gender}}</p>
+    </div>
+  </div>
 </div>
