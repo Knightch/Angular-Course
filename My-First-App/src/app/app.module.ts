@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
 import { RecipesComponent } from './recipes/recipes.component';
 import { HeaderComponent } from './header/header.component';
 import { RecipesDetailsComponent } from './recipes/recipes-details/recipes-details.component';
@@ -35,6 +35,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [ShoppingService],
