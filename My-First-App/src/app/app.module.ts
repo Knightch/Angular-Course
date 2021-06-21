@@ -5,10 +5,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ShortenPipes } from './shorten.pipes';
+import { FilterPipe } from './filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    ShortenPipes
+    ShortenPipes,
+    FilterPipe
 
   ],
   imports: [
