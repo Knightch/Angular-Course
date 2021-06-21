@@ -19,15 +19,23 @@ export class AppComponent implements OnInit{
     )
   }
   ngOnInit() {
-    
+    this.fetchPosts();
   }
 
   onFetchPosts() {
     // Send Http request
+    this.fetchPosts();
   }
 
   onClearPosts() {
     // Send Http request
+  }
+
+  private fetchPosts() {
+    this.http.get('https://ng-complete-guide-ded1b-default-rtdb.firebaseio.com/posts.json')
+      .subscribe(posts => {
+        console.log(posts)
+      });
   }
 
 }
