@@ -4,9 +4,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
+import { ShortenPipes } from './shorten.pipes';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ShortenPipes
 
   ],
   imports: [
