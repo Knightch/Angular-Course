@@ -20,12 +20,20 @@ export class AppComponent implements OnInit{
     this.pSer.createAndStorePost(postData.title, postData.content);
   }
   ngOnInit() {
-    this.pSer.fetchPosts();
+    this.isFetching = true;
+    this.pSer.fetchPosts().subscribe(posts => {
+      this.isFetching = false;
+      this.loadedPosts = posts;
+    })
   }
 
   onFetchPosts() {
     // Send Http request
-    this.pSer.fetchPosts();
+    this.isFetching = true;
+    this.pSer.fetchPosts().subscribe(post => {
+      this.isFetching = false;
+      this.loadedPosts = post;
+    });
   }
 
   onClearPosts() {

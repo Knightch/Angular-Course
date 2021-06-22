@@ -20,7 +20,7 @@ export class postService {
         )
     }
     fetchPosts() {
-        this.http.get('https://ng-complete-guide-ded1b-default-rtdb.firebaseio.com/posts.json')
+        return this.http.get('https://ng-complete-guide-ded1b-default-rtdb.firebaseio.com/posts.json')
             .pipe(map((responseData: { [key: string]: Post }) => {
                 const postsArray: Post[] = [];
                 for (const key in responseData) {
@@ -29,9 +29,6 @@ export class postService {
                     }
                 }
                 return postsArray;
-            }))
-            .subscribe(posts => {
-               
-            });
+            }));
     }
 }
