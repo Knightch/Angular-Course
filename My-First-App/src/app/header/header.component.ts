@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { DataStorageService } from '../Ingredient/data-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private dataStorageService: DataStorageService) { }
+  
+  ngOnInit() {
+    
   }
+  onSaveData() {
+    this.dataStorageService.storageRecipes();
+ }
 
 
 }
