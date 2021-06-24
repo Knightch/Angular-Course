@@ -19,6 +19,7 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './recipes/recipe.service';
 import { AuthComponent } from './Auth/auth.component';
+import { LoadingSpinnerComponent } from './Ingredient/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AuthComponent } from './Auth/auth.component';
     DropDownDirective,
     RecipeStartComponent,
     RecipeEditComponent,
-    AuthComponent
+    AuthComponent,
+    LoadingSpinnerComponent
 
   ],
   imports: [
@@ -43,7 +45,7 @@ import { AuthComponent } from './Auth/auth.component';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [ShoppingService,RecipeService],
+  providers: [ShoppingService, RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
