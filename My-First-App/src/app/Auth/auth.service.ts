@@ -1,7 +1,7 @@
 import { registerLocaleData } from "@angular/common";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Subject, throwError } from "rxjs";
+import { BehaviorSubject, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import { User } from "./user.model";
 
@@ -20,7 +20,7 @@ export interface AuthResponseData {
 })
 export class AuthService {
 
-    user = new Subject<User>();
+    user = new BehaviorSubject<User>(null);
 
     constructor(private http: HttpClient) { }
 
@@ -35,7 +35,7 @@ export class AuthService {
                 const expirationDate = new Date(new Date().getTime() + +resData.expiresin * 1000);
                 const user = new User(resData.email, resData.localId, resData.idToken, expirationDate);
                 this.user.next(user);
-            }  
+            }
             ));
     }
     login(email: string, password: string) {
@@ -51,7 +51,7 @@ export class AuthService {
                 const user = new User(resData.email, resData.localId, resData.idToken, expirationDate);
                 this.user.next(user);
             }
-                
+
             ));
     }
 
