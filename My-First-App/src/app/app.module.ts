@@ -22,6 +22,8 @@ import { AuthComponent } from './Auth/auth.component';
 import { LoadingSpinnerComponent } from './Ingredient/loading-spinner/loading-spinner.component';
 import { AuthInterceptorsService } from './Auth/auth-interceptor.service';
 import { AlertComponent } from './Ingredient/alert/alert.component';
+import { PlaceholderDirective } from './Ingredient/placeholder/placeholder.directive';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { AlertComponent } from './Ingredient/alert/alert.component';
     RecipeEditComponent,
     AuthComponent,
     LoadingSpinnerComponent,
-    AlertComponent
+    AlertComponent,
+    PlaceholderDirective
 
   ],
   imports: [
