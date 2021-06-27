@@ -22,6 +22,7 @@ export interface AuthResponseData {
 export class AuthService {
 
     user = new BehaviorSubject<User>(null);
+    tokenExpirationTimer: any;
 
     constructor(private http: HttpClient, private router: Router) { }
 
@@ -50,6 +51,17 @@ export class AuthService {
     logOut() {
         this.user.next(null);
         this.router.navigate(['/auth']);
+        localStorage.removeItem('userDate');
+        if (this.tokenExpirationTimer) {
+            clearTimeout(this.tokenExpirationTimer);
+        }
+        this.tokenExpirationTimer = null;
+    }
+
+    autoLogout(expirationDuration: number) {
+        this.tokenExpirationTimer = setTimeout(() => {
+            this.logOut();
+        }, expirationDuration);
     }
 
     signUp(email: string, password: string) {
@@ -58,14 +70,20 @@ export class AuthService {
                 email: email,
                 password: password,
                 returnSecureToken: true
-            })
-            .pipe(catchError(this.handleError), tap(resData => {
-                const expirationDate = new Date(new Date().getTime() + +resData.expiresin * 1000);
-                const user = new User(resData.email, resData.localId, resData.idToken, expirationDate);
-                this.user.next(user);
-                localStorage.setItem('userData', JSON.stringify(user));
             }
-            ));
+        )
+            .pipe(
+                catchError(this.handleError),
+                tap(resData => {
+                    this.handleAuthentication(
+                        resData.email,
+                        resData.localId,
+                        resData.idToken,
+                        +resData.expiresin
+                    );
+                })
+            );
+
     }
     login(email: string, password: string) {
         return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCc8t04BN1B7JTIO2JrEzYgD8QWVBOAF_k',
@@ -75,15 +93,33 @@ export class AuthService {
                 returnSecureToken: true
             }
         )
-            .pipe(catchError(this.handleError), tap(resData => {
-                const expirationDate = new Date(new Date().getTime() + +resData.expiresin * 1000);
-                const user = new User(resData.email, resData.localId, resData.idToken, expirationDate);
-                this.user.next(user);
-                localStorage.setItem('userData', JSON.stringify(user));
-            }
+            .pipe(
+                catchError(this.handleError),
+                tap(resData => {
+                    this.handleAuthentication(
+                        resData.email,
+                        resData.localId,
+                        resData.idToken,
+                        +resData.expiresin
+                    );
+                })
+            );
 
-            ));
     }
+
+    private handleAuthentication(
+        email: string,
+        userId: string,
+        token: string,
+        expiresIn: number
+    ) {
+        const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
+        const user = new User(email, userId, token, expirationDate);
+        this.user.next(user);
+        this.autoLogout(expiresIn * 1000);
+        localStorage.setItem('userData', JSON.stringify(user));
+    }
+
 
     private handleError(errorRes: HttpErrorResponse) {
         let errorMessage = 'An unknown error occured!';
