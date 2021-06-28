@@ -52,6 +52,10 @@ import { PlaceholderDirective } from './Ingredient/placeholder/placeholder.direc
     AppRoutingModule,
   ],
   providers: [ShoppingService, RecipeService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorsService, multi: true }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    AlertComponent
+    
+  ]
 })
 export class AppModule { }
