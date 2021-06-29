@@ -7,9 +7,15 @@
 
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li routerLinkActive="active" *ngIf="isAuthentication"><a routerLink="/recipes" >Recipe</a></li>
-                <li routerLinkActive="active" *ngIf="!isAuthentication"><a routerLink="/auth">Authentication Page</a></li>
-                <li routerLinkActive="active" ><a routerLink="/shopping-list">Shopping list</a></li>
+                <li routerLinkActive="active" *ngIf="isAuthentication">
+                    <a routerLink="/recipes" >Recipe</a>
+                </li>
+                <li routerLinkActive="active" *ngIf="!isAuthentication">
+                    <a routerLink="/auth">Authentication Page</a>
+                </li>
+                <li routerLinkActive="active" >
+                    <a routerLink="/shopping-list">Shopping list</a>
+                </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
