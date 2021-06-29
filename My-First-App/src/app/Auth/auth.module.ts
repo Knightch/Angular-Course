@@ -12,7 +12,7 @@ import { SharedModule } from "../Ingredient/shared.module";
     imports: [CommonModule,
         FormsModule,
         RouterModule.forChild([
-            { path: 'auth', component: AuthComponent }
+            { path: '', component: AuthComponent }
         ]),
         SharedModule
     ]

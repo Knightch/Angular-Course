@@ -4,7 +4,9 @@ import { RouterModule, Routes } from "@angular/router";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-    { path: 'recipes', loadChildren: () => import('./recipes/recipes.module').then(m=>m.RecipesModule) }
+    { path: 'recipes', loadChildren: () => import('./recipes/recipes.module').then(m => m.RecipesModule) },
+    { path: 'shopping-list', loadChildren: () => import('./shopping/shopping-list.module').then(m => m.ShoppingListModule) },
+    { path: 'auth', loadChildren: () => import('./Auth/auth.module').then(m => m.AuthModule) }
 ]
 @NgModule({
     imports: [RouterModule.forRoot(appRoutes)],
